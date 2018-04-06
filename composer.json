@@ -1,0 +1,17 @@
+{
+    "name": "wpprogramator/woocommerce-helpers",
+    "description": "WooCommece Helpers",
+    "type": "library",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Václav Greif",
+            "email": "vaclav@wp-programator.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": { "WPProgramator\\WooCommerce\\": ["src/"] }
+    }
+}
