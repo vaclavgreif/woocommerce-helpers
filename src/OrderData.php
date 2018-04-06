@@ -44,14 +44,17 @@ class OrderData {
 				}
 			}
 
-			$items[] = [
-				'name'       => $item->get_name(),
-				'unit_price_tax_excl' => $this->order->get_item_total($item,false),
-				'unit_price_tax_incl' => $this->order->get_item_total($item,true),
-				'quantity' => $item->get_quantity(),
-				'vat_rate' => $tax,
-				'tax_total' => $item->get_total_tax()
-			];
+			$item = new OrderDataItem();
+			$item->setProp('type',$item->get_type());
+			$item->setProp('name',$item->get_name());
+			$item->setProp('unitPriceTaxExc',$this->order->get_item_total($item,false));
+			$item->setProp('unitPriceTaxInc',$this->order->get_item_total($item,true));
+			$item->setProp('quantity',$item->get_quantity());
+			$item->setProp('vatRate', $tax);
+			$item->setProp('taxTotal', $item->get_total_tax());
+			$item->setProp('taxClass', $item->get_tax_class());
+
+			$items[] = $item;
 		}
 
 		return $items;
@@ -74,14 +77,17 @@ class OrderData {
 				}
 			}
 
-			$items[] = [
-				'name'       => $item->get_name(),
-				'unit_price_tax_excl' => $item->get_total() ,
-				'unit_price_tax_incl' => $item->get_total() + $item->get_total_tax(),
-				'quantity' => $item->get_quantity(),
-				'vat_rate' => $tax,
-				'tax_total' => $item->get_total_tax()
-			];
+			$item = new OrderDataItem();
+			$item->setProp('type',$item->get_type());
+			$item->setProp('name',$item->get_name());
+			$item->setProp('unitPriceTaxExc', $item->get_total());
+			$item->setProp('unitPriceTaxInc', $item->get_total() + $item->get_total_tax());
+			$item->setProp('quantity',$item->get_quantity());
+			$item->setProp('vatRate', $tax);
+			$item->setProp('taxTotal', $item->get_total_tax());
+			$item->setProp('taxClass', $item->get_tax_class());
+
+			$items[] = $item;
 		}
 
 		return $items;
@@ -106,14 +112,18 @@ class OrderData {
 				}
 			}
 
-			$items[] = [
-				'name'       => $item->get_name(),
-				'unit_price_tax_excl' => $item->get_total(),
-				'unit_price_tax_incl' => $item->get_total() + $item->get_total_tax(),
-				'quantity' => $item->get_quantity(),
-				'vat_rate' => $tax,
-				'tax_total' => $item->get_total_tax()
-			];
+
+			$item = new OrderDataItem();
+			$item->setProp('type',$item->get_type());
+			$item->setProp('name',$item->get_name());
+			$item->setProp('unitPriceTaxExc', $item->get_total());
+			$item->setProp('unitPriceTaxInc', $item->get_total() + $item->get_total_tax());
+			$item->setProp('quantity',$item->get_quantity());
+			$item->setProp('vatRate', $tax);
+			$item->setProp('taxTotal', $item->get_total_tax());
+			$item->setProp('taxClass', $item->get_tax_class());
+
+			$items[] = $item;
 		}
 
 		return $items;
