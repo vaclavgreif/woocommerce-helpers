@@ -12,7 +12,7 @@ class OrderData {
 
 	/**
 	 * Get order items
-	 * @return array
+	 * @return OrderDataItem[]
 	 */
 	function getItems() {
 		$items = [];
@@ -45,7 +45,7 @@ class OrderData {
 			}
 
 			$item = new OrderDataItem();
-			$item->setProp('type',$item->get_type());
+			$item->setProp('type', 'line_item');
 			$item->setProp('name',$item->get_name());
 			$item->setProp('unitPriceTaxExc',$this->order->get_item_total($item,false));
 			$item->setProp('unitPriceTaxInc',$this->order->get_item_total($item,true));
@@ -78,7 +78,7 @@ class OrderData {
 			}
 
 			$item = new OrderDataItem();
-			$item->setProp('type',$item->get_type());
+			$item->setProp('type', 'shipping');
 			$item->setProp('name',$item->get_name());
 			$item->setProp('unitPriceTaxExc', $item->get_total());
 			$item->setProp('unitPriceTaxInc', $item->get_total() + $item->get_total_tax());
@@ -114,7 +114,7 @@ class OrderData {
 
 
 			$item = new OrderDataItem();
-			$item->setProp('type',$item->get_type());
+			$item->setProp('type', 'fee');
 			$item->setProp('name',$item->get_name());
 			$item->setProp('unitPriceTaxExc', $item->get_total());
 			$item->setProp('unitPriceTaxInc', $item->get_total() + $item->get_total_tax());
