@@ -15,7 +15,7 @@ class OrderDataItem {
 
 	}
 
-	function setProp($prop, $value) {
+	function set_prop($prop, $value) {
 		$this->{$prop} = $value;
 	}
 }
