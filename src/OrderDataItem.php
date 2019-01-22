@@ -1,7 +1,12 @@
 <?php
+
 namespace WPProgramator\WooCommerce;
 
 class OrderDataItem {
+	public $item_id;
+	public $product_id;
+	public $sku;
+	public $variation_id;
 	public $type;
 	public $name;
 	public $unitPriceTaxExc;
@@ -10,12 +15,9 @@ class OrderDataItem {
 	public $vatRate;
 	public $taxTotal;
 	public $taxClass;
+	public $item;
 
-	function __construct() {
-
-	}
-
-	function set_prop($prop, $value) {
+	public function set_prop( $prop, $value ) {
 		$this->{$prop} = $value;
 	}
 }
