@@ -63,8 +63,8 @@ class OrderData {
 
 			$order_item->set_prop( 'type', $item->get_type() );
 			$order_item->set_prop( 'name', $item->get_name() );
-			$order_item->set_prop( 'unitPriceTaxExc', $this->order->get_item_total( $item, false ) );
-			$order_item->set_prop( 'unitPriceTaxInc', $this->order->get_item_total( $item, true ) );
+			$order_item->set_prop( 'unitPriceTaxExc', floatval($this->order->get_item_total( $item, false ) ));
+			$order_item->set_prop( 'unitPriceTaxInc', floatval($this->order->get_item_total( $item, true ) ));
 			$order_item->set_prop( 'quantity', $item->get_quantity() );
 			$order_item->set_prop( 'vatRate', $tax );
 			$order_item->set_prop( 'taxTotal', $item->get_total_tax() );
@@ -97,8 +97,8 @@ class OrderData {
 			$order_item->set_prop( 'item_id', $item->get_id() );
 			$order_item->set_prop( 'type', $item->get_type() );
 			$order_item->set_prop( 'name', $item->get_name() );
-			$order_item->set_prop( 'unitPriceTaxExc', $item->get_total() );
-			$order_item->set_prop( 'unitPriceTaxInc', $item->get_total() + $item->get_total_tax() );
+			$order_item->set_prop( 'unitPriceTaxExc', floatval($item->get_total() ));
+			$order_item->set_prop( 'unitPriceTaxInc', floatval($item->get_total() + $item->get_total_tax() ));
 			$order_item->set_prop( 'quantity', $item->get_quantity() );
 			$order_item->set_prop( 'vatRate', $tax );
 			$order_item->set_prop( 'taxTotal', $item->get_total_tax() );
@@ -133,8 +133,8 @@ class OrderData {
 			$order_item->set_prop( 'item_id', $item->get_id() );
 			$order_item->set_prop( 'type', $item->get_type() );
 			$order_item->set_prop( 'name', $item->get_name() );
-			$order_item->set_prop( 'unitPriceTaxExc', $item->get_total() );
-			$order_item->set_prop( 'unitPriceTaxInc', $item->get_total() + $item->get_total_tax() );
+			$order_item->set_prop( 'unitPriceTaxExc', floatval($item->get_total() ));
+			$order_item->set_prop( 'unitPriceTaxInc', floatval($item->get_total() + $item->get_total_tax() ));
 			$order_item->set_prop( 'quantity', $item->get_quantity() );
 			$order_item->set_prop( 'vatRate', $tax );
 			$order_item->set_prop( 'taxTotal', $item->get_total_tax() );
